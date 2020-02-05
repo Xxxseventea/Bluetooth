@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+<ImageView
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:src="@drawable/backgroud"
+    android:scaleType="fitXY"/>
+        <TextView
+            android:id="@+id/time_mm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:layout_centerInParent="true"
+            android:textSize="70sp"
+            android:text="12:36"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/time_yyyy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2019年10月24日星期四"
+            android:layout_margin="15dp"
+            android:textColor="#ffffff"
+            android:textSize="20sp"/>
+    </RelativeLayout>
+
+    <ExpandableListView
+        android:id="@+id/expanded_today"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
