@@ -7,20 +7,17 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.bluetooth.R;
-import com.jude.easyrecyclerview.adapter.BaseViewHolder;
-import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class ListRecyclerViewAdapter extends RecyclerView.Adapter<ListRecyclerViewAdapter.ViewHolder> {
+public class RankListRecyclerViewAdapter extends RecyclerView.Adapter<RankListRecyclerViewAdapter.ViewHolder> {
 
     Context context;
     ArrayList arrayList = new ArrayList();
-    public ListRecyclerViewAdapter(Context context){
+    public RankListRecyclerViewAdapter(Context context){
 
         this.context = context;
     }

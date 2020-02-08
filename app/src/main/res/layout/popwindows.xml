@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<include
+    android:id="@+id/address_qq"
+    layout="@layout/item_popwindows"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#A8A8A8" />
+
+
+    <include
+        android:id="@+id/address_email"
+        layout="@layout/item_popwindows"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#A8A8A8"/>
+
+    <include
+        android:id="@+id/address_pnumber"
+        layout="@layout/item_popwindows"/>
+
+</LinearLayout>
