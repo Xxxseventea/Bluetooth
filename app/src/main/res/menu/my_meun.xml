@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/address"
+        android:icon=""
+        android:title="check"/>
+
+    <item
+        android:id="@+id/calender"
+        android:icon=""
+        android:title="ranking"/>
+
+    <item
+        android:id="@+id/setting"
+        android:icon=""
+        android:title="my"/>
+</menu>

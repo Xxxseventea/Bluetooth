@@ -9,6 +9,7 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
 import com.example.bluetooth.R;
+import com.example.bluetooth.bean.PeriodBean;
 
 import java.util.ArrayList;
 import java.util.zip.Inflater;
@@ -16,36 +17,35 @@ import java.util.zip.Inflater;
 public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
     Context context;
-    ArrayList<String> group;
-    ArrayList<ArrayList<String>> child;
-    public ExpandableListAdapter(Context context, ArrayList<String> group,ArrayList<ArrayList<String>> child){
+    ArrayList<PeriodBean> arrayList;
+    public ExpandableListAdapter(Context context, ArrayList<PeriodBean> arrayList){
 
-        this.child = child;
         this.context = context;
-        this.group = group;
+        this.arrayList = arrayList;
+
     }
     //父项的个数
     @Override
     public int getGroupCount() {
-        return group.size();
+        return arrayList.size();
     }
 
     //某个父项的个数
     @Override
     public int getChildrenCount(int groupPosition) {
-        return child.get(groupPosition).size();
+        return 1;
     }
 
     //获得某个父项
     @Override
     public Object getGroup(int groupPosition) {
-        return group.get(groupPosition);
+        return arrayList.get(groupPosition);
     }
 
     //获得某个子项
     @Override
     public Object getChild(int groupPosition, int childPosition) {
-        return child.get(childPosition);
+        return arrayList.get(childPosition);
     }
 
     //父项id
@@ -69,28 +69,25 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
         TextView textView;
+        TextView textView1;
         convertView = LayoutInflater.from(context).inflate(R.layout.item_period_group,parent,false);
-        textView = convertView.findViewById(R.id.tv_group);
-        textView.setText(group.get(groupPosition));
+        textView = convertView.findViewById(R.id.period_time);
+        textView1 = convertView.findViewById(R.id.isabsent);
+        textView.setText(arrayList.get(groupPosition).getDate());
+        textView1.setText(arrayList.get(groupPosition).getIsabsent());
         return convertView;
     }
 
     //获取子项的view
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
-        if(groupPosition == 0){
             convertView  = LayoutInflater.from(context).inflate(R.layout.item_period_child_today,parent,false);
 
             TextView textView = convertView.findViewById(R.id.time);
             TextView textView1 = convertView.findViewById(R.id.timelong);
 
-            textView.setText();
-            textView.setText();
-
-        }else{
-            convertView = LayoutInflater.from(context).inflate(R.layout.item_period_child_history,parent,false);
-
-        }
+            textView.setText(arrayList.get(groupPosition).getTime());
+            textView1.setText(arrayList.get(groupPosition).getDuration());
         return convertView;
     }
 

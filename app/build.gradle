@@ -44,14 +44,14 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
 
     //图片库
-  //  implementation 'com.github.bumptech.glide:glide:4.8.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'de.hdodenhof:circleimageview:2.2.0'
     implementation 'com.youth.banner:banner:1.4.10'
     implementation 'cn.finalteam:galleryfinal:1.4.3'
 
- //   implementation 'com.github.mcxtzhang:SwipeDelMenuLayout:V1.3.0'
+    //   implementation 'com.github.mcxtzhang:SwipeDelMenuLayout:V1.3.0'
 
     //事件总线注解
     implementation 'org.greenrobot:eventbus:3.1.1'
@@ -68,13 +68,13 @@ dependencies {
 
     //验证码库
     implementation 'com.jacktuotuo.customview:verificationcodeview:1.0.4'
-  //  implementation 'com.github.liuguangli:VerificationCodeInput:1.3'
+    //  implementation 'com.github.liuguangli:VerificationCodeInput:1.3'
 
     //log库，Simple, pretty and powerful logger for android
     implementation 'com.orhanobut:logger:2.2.0'
 
     //侧滑删除库
-  //  implementation 'com.github.mcxtzhang:SwipeDelMenuLayout:1.4.0'
+    //  implementation 'com.github.mcxtzhang:SwipeDelMenuLayout:1.4.0'
 
 
     //内存泄漏检查
