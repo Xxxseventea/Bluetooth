@@ -1,9 +1,9 @@
 package com.example.bluetooth.view.fragment.childfragment;
 
-import android.widget.CalendarView;
-
 import com.example.bluetooth.R;
 import com.example.bluetooth.view.fragment.base.BaseFragment;
+import com.haibin.calendarview.Calendar;
+import com.haibin.calendarview.CalendarView;
 
 public class MyCalendarFragment extends BaseFragment {
     CalendarView calendarView;
@@ -14,6 +14,6 @@ public class MyCalendarFragment extends BaseFragment {
 
     @Override
     protected void initView() {
-        calendarView = getView().findViewById(R.id.calendar)
+        calendarView = getView().findViewById(R.id.calendar);
     }
 }

@@ -1,8 +1,11 @@
 package com.example.bluetooth.view.fragment;
 
 import android.os.Bundle;
+import android.text.Layout;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.bluetooth.R;
@@ -27,6 +30,9 @@ public class MyFragment extends BaseFragment implements MyContract.MyView {
     Button edit;
     TabLayout tabLayout;
     ViewPager viewPager;
+    RelativeLayout chuqinglv;
+    RelativeLayout chidao;
+    RelativeLayout qingjia;
 
     /**
      * 单例模式
@@ -45,13 +51,34 @@ public class MyFragment extends BaseFragment implements MyContract.MyView {
 
     @Override
     protected void initView() {
+        //初始化硬件
         head = getView().findViewById(R.id.my_head);
         name = getView().findViewById(R.id.my_name);
         snumber = getView().findViewById(R.id.my_snumber);
         edit = getView().findViewById(R.id.edit);
         tabLayout = getView().findViewById(R.id.my_tablayout);
         viewPager = getView().findViewById(R.id.my_viewpager);
+        chuqinglv = getView().findViewById(R.id.chuqinglv);
+        chidao = getView().findViewById(R.id.chidao);
+        qingjia = getView().findViewById(R.id.qingjia);
 
+        //设置数据
+        TextView text1 = chuqinglv.findViewById(R.id.text);
+        text1.setText("本月出勤率");
+        TextView data1 = chuqinglv.findViewById(R.id.data);
+        data1.setText("");  //后端数据设置
+
+        TextView text2 = chidao.findViewById(R.id.text);
+        text2.setText("迟到次数");
+        TextView data2 = chidao.findViewById(R.id.data);
+        data2.setText("");  //后端数据设置
+
+        TextView text3 = qingjia.findViewById(R.id.text);
+        text3.setText("请假次数");
+        TextView data3 = qingjia.findViewById(R.id.data);
+        data3.setText("");  //后端数据设置
+
+        //添加fragment
         ArrayList<Fragment> fragments = new ArrayList<>();
         fragments.add(new MyCalendarFragment());
         fragments.add(new MyAddressFragment());

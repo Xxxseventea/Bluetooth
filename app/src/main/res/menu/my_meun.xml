@@ -3,16 +3,16 @@
 
     <item
         android:id="@+id/address"
-        android:icon=""
+        android:icon="@drawable/address"
         android:title="check"/>
 
     <item
         android:id="@+id/calender"
-        android:icon=""
+        android:icon="@drawable/calendar"
         android:title="ranking"/>
 
     <item
         android:id="@+id/setting"
-        android:icon=""
+        android:icon="@drawable/setting"
         android:title="my"/>
 </menu>

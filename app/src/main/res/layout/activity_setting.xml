@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.activity.SettingActivity">
+
+    <RelativeLayout
+        android:id="@+id/tab_relative"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    <com.google.android.material.tabs.TabLayout
+        android:background="#ffffff"
+        android:id="@+id/setting_tab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </com.google.android.material.tabs.TabLayout>
+        <Button
+            android:id="@+id/setting_back"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/zuojiantou"
+            android:layout_centerVertical="true"/>
+
+</RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/settting_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:orientation="vertical"
+        android:layout_below="@+id/tab_relative"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:id="@+id/change_head"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:text="头像"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:drawableRight="@drawable/youjiantou"
+            android:hint="从相册中选择"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginHorizontal="40dp"
+            android:background="#eeeeee" />
+
+        <TextView
+            android:id="@+id/change_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:text="姓名"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginHorizontal="40dp"
+            android:background="#eeeeee" />
+
+        <TextView
+            android:id="@+id/change_stunumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:text="学号"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+</RelativeLayout>
