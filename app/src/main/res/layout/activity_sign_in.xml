@@ -8,7 +8,7 @@
         android:id="@+id/image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/loggo"
+        android:src="@drawable/signin_background"
         android:layout_centerHorizontal="true"
         android:padding="35dp"/>
 
@@ -19,16 +19,19 @@
         android:layout_below="@+id/image"
         android:drawableLeft="@mipmap/icon_user"
         android:layout_centerHorizontal="true"
-        android:hint="用户名"/>
+        android:hint=" 请输入账户"
+        android:textColorHint="#6a85f0"/>
 
     <EditText
         android:id="@+id/password"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/user_name"
-        android:drawableLeft="@mipmap/icon_user"
+        android:drawableLeft="@mipmap/password"
         android:layout_centerHorizontal="true"
-        android:hint="密码"/>
+        android:hint="   密码"
+        android:textColorHint="#6a85f0"
+        android:layout_marginTop="20dp"/>
 
     <Button
         android:id="@+id/login"
@@ -39,15 +42,26 @@
         android:layout_centerHorizontal="true"
         android:text="登录"
         android:textColor="#ffffff"
-        android:background="#4682B4"/>
+        android:background="@drawable/button"/>
 
     <TextView
         android:id="@+id/forget_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="忘记密码"
+        android:textColor="@color/theme"
         android:layout_below="@+id/login"
-        android:layout_alignRight="@+id/login"
+        android:layout_alignLeft="@+id/login"
+        android:padding="10dp" />
+
+    <TextView
+        android:id="@+id/phone_signin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@id/login"
+        android:layout_below="@+id/login"
+        android:text="手机验证码登陆"
+        android:textColor="@color/theme"
         android:padding="10dp"/>
 
 

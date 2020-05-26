@@ -61,7 +61,6 @@ public class AddressRecyclerViewAdapter extends RecyclerView.Adapter<AddressRecy
 
     public void popwindows(){
         View view = LayoutInflater.from(context).inflate(R.layout.popwindows,null);
-        View parentView = LayoutInflater.from(context).inflate(R.layout.fragment_mychild_addresslist,null);
 
         LinearLayout QQ = view.findViewById(R.id.address_qq);
         LinearLayout email = view.findViewById(R.id.address_email);
@@ -76,9 +75,7 @@ public class AddressRecyclerViewAdapter extends RecyclerView.Adapter<AddressRecy
         phones.setText("");
         PopupWindow popupWindow = new PopupWindow(view,LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT,true);
 
-        popupWindow.setContentView(parentView);
         popupWindow.setTouchable(true);
         popupWindow.setOutsideTouchable(true);
-        popupWindow.showAtLocation(parentView, Gravity.BOTTOM, 0, 0);
     }
 }

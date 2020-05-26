@@ -1,107 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#ffffff">
 
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="#32c6eb">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@color/theme"/>
 
-    <de.hdodenhof.circleimageview.CircleImageView
+    <RelativeLayout
+        android:id="@+id/relative"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="100dp"
+        android:background="#ffffff">
+
+        <RelativeLayout
+            android:id="@+id/my_setting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:padding="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="设置事项与时间"
+                android:padding="10dp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/youjiantou"
+                android:layout_marginRight="10dp"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/my_kaoqin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/my_setting"
+            android:padding="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="个人考勤记录"
+                android:padding="10dp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/youjiantou"
+                android:layout_marginRight="10dp"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/my_xinxi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/my_kaoqin"
+            android:padding="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="个人信息"
+                android:padding="10dp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/youjiantou"
+                android:layout_marginRight="10dp"/>
+
+        </RelativeLayout>
+        <ImageView
+            android:id="@+id/image1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/text_grey"
+            android:layout_below="@id/my_xinxi"
+            />
+        <ImageView
+            android:id="@+id/image2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/text_grey"
+            android:layout_below="@id/my_kaoqin"/>
+    </RelativeLayout>
+
+
+    <ImageView
         android:id="@+id/my_head"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@mipmap/ic_launcher"
-        android:padding="20dp"
-        android:layout_marginLeft="20dp"/>
-
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"/>
     <TextView
         android:id="@+id/my_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/my_snumber"
-        android:layout_toRightOf="@+id/my_head"
-        android:text="txx"/>
+        android:text="姓名：田晓煊"
+        android:layout_below="@+id/my_head"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"/>
 
     <TextView
-        android:id="@+id/my_snumber"
+        android:id="@+id/my_snub"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="2018210453"
-        android:layout_toRightOf="@+id/my_head"
-        android:layout_alignBottom="@+id/my_head"
-        android:layout_marginBottom="40dp"/>
+        android:text="学号：2018210453"
+        android:layout_below="@+id/my_name"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"/>
 
-
-    <Button
-        android:id="@+id/edit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignBottom="@+id/my_head"
-        android:layout_marginBottom="40dp" />
-</RelativeLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#32c6eb"
-        android:padding="10dp">
-
-    <include
-        layout="@layout/item"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:id="@+id/chuqinglv"/>
-
-    <ImageView
-        android:layout_width="2dp"
-        android:layout_height="50dp"
-        android:background="#ffffff"
-        android:layout_toRightOf="@+id/chuqinlv"
-        android:layout_below="@+id/my_head"
-        android:padding="20dp"
-        android:layout_marginTop="10dp"/>
-
-        <include
-            layout="@layout/item"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:id="@+id/chidao"/>
-
-    <ImageView
-        android:layout_width="2dp"
-        android:layout_height="50dp"
-        android:background="#ffffff"
-        android:layout_toRightOf="@+id/chidao"
-        android:layout_below="@+id/my_head"
-        android:padding="20dp"
-        android:layout_marginTop="10dp"/>
-
-
-        <include
-            layout="@layout/item"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:id="@+id/qingjia"/>
-    </LinearLayout>
-
-
-   <com.google.android.material.bottomnavigation.BottomNavigationView
-       android:id="@+id/my_tablayout"
-       android:layout_width="match_parent"
+   <TextView
+       android:id="@+id/exit"
+       android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       app:menu="@menu/my_meun"/>
+       android:layout_below="@+id/relative"
+       android:text="退出登录"
+       android:layout_centerHorizontal="true"
+       android:layout_marginTop="80dp"
+       android:textColor="@color/theme"
+       android:textStyle="bold"
+       android:textSize="20sp"/>
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/my_viewpager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
-</LinearLayout>
+</RelativeLayout>

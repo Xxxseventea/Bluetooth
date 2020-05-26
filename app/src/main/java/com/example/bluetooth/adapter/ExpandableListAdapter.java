@@ -1,6 +1,7 @@
 package com.example.bluetooth.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -71,10 +72,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         TextView textView;
         TextView textView1;
         convertView = LayoutInflater.from(context).inflate(R.layout.item_period_group,parent,false);
-        textView = convertView.findViewById(R.id.period_time);
-        textView1 = convertView.findViewById(R.id.isabsent);
-        textView.setText(arrayList.get(groupPosition).getDate());
-        textView1.setText(arrayList.get(groupPosition).getIsabsent());
+        textView = convertView.findViewById(R.id.group_state);
         return convertView;
     }
 
@@ -83,12 +81,10 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
             convertView  = LayoutInflater.from(context).inflate(R.layout.item_period_child_today,parent,false);
 
-            TextView textView = convertView.findViewById(R.id.time);
-            TextView textView1 = convertView.findViewById(R.id.timelong);
-
-            textView.setText(arrayList.get(groupPosition).getTime());
-            textView1.setText(arrayList.get(groupPosition).getDuration());
-        return convertView;
+            TextView state = convertView.findViewById(R.id.state);
+            TextView time = convertView.findViewById(R.id.time);
+            TextView timelong = convertView.findViewById(R.id.timelong);;
+        return convertView ;
     }
 
     //子项是否可选中

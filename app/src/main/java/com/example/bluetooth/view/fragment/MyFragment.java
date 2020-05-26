@@ -1,7 +1,12 @@
 package com.example.bluetooth.view.fragment;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Layout;
+import android.util.Log;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -11,28 +16,33 @@ import android.widget.TextView;
 import com.example.bluetooth.R;
 import com.example.bluetooth.adapter.ViewpagerAdapter;
 import com.example.bluetooth.contract.MyContract;
+import com.example.bluetooth.view.activity.SettingActivity;
+import com.example.bluetooth.view.activity.SignInActivity;
+import com.example.bluetooth.view.activity.UserInfo;
+import com.example.bluetooth.view.activity.UserInfoRecord;
 import com.example.bluetooth.view.fragment.base.BaseFragment;
-import com.example.bluetooth.view.fragment.childfragment.MyCalendarFragment;
-import com.example.bluetooth.view.fragment.childfragment.MyAddressFragment;
-import com.example.bluetooth.view.fragment.childfragment.MySettingFragment;
+import com.google.android.material.bottomnavigation.BottomNavigationItemView;
+import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.viewpager.widget.ViewPager;
+import cn.finalteam.toolsfinal.ActivityManager;
 
-public class MyFragment extends BaseFragment implements MyContract.MyView {
+public class MyFragment extends BaseFragment implements MyContract.MyView, View.OnClickListener{
 
     ImageView head;
     TextView name;
-    TextView snumber;
-    Button edit;
-    TabLayout tabLayout;
-    ViewPager viewPager;
-    RelativeLayout chuqinglv;
-    RelativeLayout chidao;
-    RelativeLayout qingjia;
+    RelativeLayout xinxi;
+    RelativeLayout kaoqin;
+    RelativeLayout setting;
+    TextView exit;
 
     /**
      * 单例模式
@@ -54,39 +64,14 @@ public class MyFragment extends BaseFragment implements MyContract.MyView {
         //初始化硬件
         head = getView().findViewById(R.id.my_head);
         name = getView().findViewById(R.id.my_name);
-        snumber = getView().findViewById(R.id.my_snumber);
-        edit = getView().findViewById(R.id.edit);
-        tabLayout = getView().findViewById(R.id.my_tablayout);
-        viewPager = getView().findViewById(R.id.my_viewpager);
-        chuqinglv = getView().findViewById(R.id.chuqinglv);
-        chidao = getView().findViewById(R.id.chidao);
-        qingjia = getView().findViewById(R.id.qingjia);
-
-        //设置数据
-        TextView text1 = chuqinglv.findViewById(R.id.text);
-        text1.setText("本月出勤率");
-        TextView data1 = chuqinglv.findViewById(R.id.data);
-        data1.setText("");  //后端数据设置
-
-        TextView text2 = chidao.findViewById(R.id.text);
-        text2.setText("迟到次数");
-        TextView data2 = chidao.findViewById(R.id.data);
-        data2.setText("");  //后端数据设置
-
-        TextView text3 = qingjia.findViewById(R.id.text);
-        text3.setText("请假次数");
-        TextView data3 = qingjia.findViewById(R.id.data);
-        data3.setText("");  //后端数据设置
-
-        //添加fragment
-        ArrayList<Fragment> fragments = new ArrayList<>();
-        fragments.add(new MyCalendarFragment());
-        fragments.add(new MyAddressFragment());
-        fragments.add(new MySettingFragment());
-
-        ViewpagerAdapter adapter = new ViewpagerAdapter(getChildFragmentManager(),fragments);
-        viewPager.setAdapter(adapter);
-        tabLayout.setupWithViewPager(viewPager);
+        xinxi = getView().findViewById(R.id.my_xinxi);
+        kaoqin = getView().findViewById(R.id.my_kaoqin);
+        setting = getView().findViewById(R.id.my_setting);
+        exit = getView().findViewById(R.id.exit);
+        xinxi.setOnClickListener(this);
+        kaoqin.setOnClickListener(this);
+        setting.setOnClickListener(this);
+        exit.setOnClickListener(this);
 
     }
 
@@ -94,5 +79,34 @@ public class MyFragment extends BaseFragment implements MyContract.MyView {
     @Override
     public void getData() {
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.my_xinxi:{
+                Intent intent = new Intent(getActivity(), UserInfo.class);
+                startActivity(intent);
+                break;
+            }
+
+            case R.id.my_kaoqin:{
+                Intent intent = new Intent(getActivity(), UserInfoRecord.class);
+                startActivity(intent);
+                break;
+            }
+
+            case R.id.my_setting:{
+                Intent intent = new Intent(getActivity(), SettingActivity.class);
+                startActivity(intent);
+                break;
+            }
+
+            case R.id.exit:{
+                Intent intent = new Intent(getActivity(), SignInActivity.class);
+                intent.putExtra("isExit1", true);
+                startActivity(intent);
+            }
+        }
     }
 }

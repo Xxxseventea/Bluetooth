@@ -87,4 +87,8 @@ dependencies {
 
     //搜索框
     implementation 'com.wenwenwen888:searchbox:1.0.1'
+
+   implementation 'com.chanven.lib:cptr:1.1.0'
+
+
 }

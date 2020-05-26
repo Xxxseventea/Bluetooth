@@ -1,22 +1,25 @@
 package com.example.bluetooth.view.activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import android.annotation.SuppressLint;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 
 import com.example.bluetooth.R;
 import com.example.bluetooth.adapter.ViewpagerAdapter;
+import com.example.bluetooth.view.fragment.AddressListFragment;
+import com.example.bluetooth.view.fragment.CalendarFragment;
 import com.example.bluetooth.view.fragment.MyFragment;
-import com.example.bluetooth.view.fragment.PeriodFragment;
 import com.example.bluetooth.view.fragment.RankingFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationView;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -32,11 +35,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         viewPager = findViewById(R.id.main_viewpager);
         navigationView = findViewById(R.id.navgationview);
-        fragments.add(new PeriodFragment());
+        fragments.add(new CalendarFragment());
         fragments.add(new RankingFragment());
+        fragments.add(new AddressListFragment());
         fragments.add(new MyFragment());
+        MenuItem menuItem;
 
-        ViewpagerAdapter viewpagerAdapter = new ViewpagerAdapter(getSupportFragmentManager() ,fragments);
+        final ViewpagerAdapter viewpagerAdapter = new ViewpagerAdapter(getSupportFragmentManager(), fragments);
         viewPager.setAdapter(viewpagerAdapter);
 
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -48,10 +53,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onPageSelected(int position) {
 
-                if (position <= 1) {
-                    navigationView.getMenu().getItem(position).setChecked(false);
-                } else if (position >= 2 && position <= 3) {
-                    navigationView.getMenu().getItem(position + 1).setChecked(false);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.CUPCAKE) {
+                    navigationView.getMenu().getItem(position).setChecked(true);
                 }
             }
 
@@ -69,6 +72,35 @@ public class MainActivity extends AppCompatActivity {
 
         //添加item监听
 
+
+        navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
+                switch (menuItem.getItemId()) {
+                    case R.id.calendar: {
+                        viewPager.setCurrentItem(0);
+                        break;
+                    }
+                    case R.id.ranking: {
+                        viewPager.setCurrentItem(1);
+                        break;
+
+                    }
+                    case R.id.address_list:{
+                        viewPager.setCurrentItem(2);
+                        break;
+                    }
+                    case R.id.my: {
+                        viewPager.setCurrentItem(3);
+                        break;
+                    }
+            }
+                return false;
+        }});
+
+
+       navigationView.setItemIconTintList(null);
     }
 
 

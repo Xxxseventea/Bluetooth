@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/check"
-        android:icon=""
-        android:title="check"/>
-
+        android:id="@+id/calendar"
+        android:icon="@drawable/select1"
+        android:title="日历"/>
     <item
         android:id="@+id/ranking"
-        android:icon=""
-        android:title="ranking"/>
+        android:icon="@drawable/select2"
+        android:title="排行榜"/>
+
+    <item
+        android:id="@+id/address_list"
+        android:icon="@drawable/select3"
+        android:title="通讯录"/>
 
     <item
         android:id="@+id/my"
-        android:icon=""
-        android:title="my"/>
-
+        android:icon="@drawable/select4"
+        android:title="个人中心"/>
 </menu>
